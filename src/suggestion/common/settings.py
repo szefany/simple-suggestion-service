@@ -24,6 +24,8 @@ import sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC_DIR = os.path.dirname(BASE_DIR)
+ROOT_DIR = os.path.dirname(SRC_DIR)
+RUN_DIR = os.path.join(ROOT_DIR, 'run')
 
 sys.path.append(SRC_DIR)
 
@@ -36,6 +38,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
     'suggestion.service',
 )
+MIDDLEWARE_CLASSES = ()
 
 ROOT_URLCONF = 'common.urls'
 WSGI_APPLICATION = 'common.wsgi.application'
@@ -43,7 +46,7 @@ WSGI_APPLICATION = 'common.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(RUN_DIR, 'db.sqlite3'),
     }
 }
 
