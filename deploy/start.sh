@@ -16,13 +16,11 @@
 
 DEFAULT_PORT=9216
 
-GenSecret() {
-  secret="$(< /dev/urandom tr -dc A-Z-a-z-0-9\!\@\#\$\%\^\& | head -c${1:-64})"
-  echo "SECRET_KEY = \""$secret"\"" > common/secret.py
-}
+ROOT_DIR=$(cd .. && pwd)
+BASE_DIR=$ROOT_DIR/src/suggestion
 
 RunServer() {
-  python manage.py runserver 0.0.0.0:$1
+  python $BASE_DIR/manage.py runserver 0.0.0.0:$1
 }
 
 Main() {
@@ -32,7 +30,6 @@ Main() {
     port=$DEFAULT_PORT
   fi
 
-  GenSecret
   RunServer $port
 }
 
