@@ -24,7 +24,10 @@ Start:
 cd deploy && ./start.sh
 ```
 
-A better way is to run the service within virtualenv/gunicorn/supervisor/systemd.
+A better practice is to run the service within
+
+* Docker
+* Or virtualenv/gunicorn/supervisor/systemd.
 
 ## APIs
 
